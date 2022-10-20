@@ -1,15 +1,16 @@
 import {createConnection} from "typeorm";
+import {Users} from "./Entities/Users";
 
 export const connectDB = async () => {
   await createConnection({
     type: 'mysql',
-    username: 'root',
-    password: 'putamadre',
+    username: 'userCron',
+    password: 'us4rCr0n',
     port: 3306,
-    host: 'localhost',
+    host: '172.30.2.234',
     database: 'node_test',
-    entities: [],
-    synchronize: false,
+    entities: [Users],
+    synchronize: true,
     ssl: false
   })
 }
