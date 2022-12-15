@@ -3,10 +3,6 @@ import {Users} from "../../Entities/Users";
 import {UserType} from "../typeDefs/User";
 import {GraphQLFieldConfig} from "graphql/type/definition";
 
-interface ITest {
-  a: number,
-  b: string
-}
 
 export const GET_ALL_USERS = {
   type: new GraphQLList(UserType),
@@ -43,7 +39,7 @@ export const UPDATE_USER: GraphQLFieldConfig<any,any> = {
     username: {type: GraphQLID},
     password: {type: GraphQLID}
   },
-  async resolve(_: any, arg : any) {
+  async resolve(_: any, arg) {
     const {id, name, username, password} = arg
     const userFound = await Users.findOneBy({id})
     console.log(userFound)

@@ -12,7 +12,7 @@ const RootQuery = new GraphQLObjectType({
   }
 })
 
-const Mutation = new GraphQLObjectType({
+const Mutation = new GraphQLObjectType<any,any>({
   name: 'Mutation',
   fields: {
     createUser: CREATE_USER,
